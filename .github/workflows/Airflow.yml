@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t Airflow:latest -f .github/Dockerfile .
+        run: docker build -t airflowimage -f .github/Dockerfile .
 
       - name: Login to Docker Hub
         run: echo "okba1020@" | docker login --username aminebenaliroo@gmail.com --password-stdin
