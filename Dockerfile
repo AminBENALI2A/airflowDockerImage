@@ -7,11 +7,5 @@ USER airflow
 # Install additional Python dependencies for Airflow
 RUN pip install torch transformers pandas scipy Dash spacy
 
-# Switch back to root user to install NiFi
-USER root
-
-# Install NiFi
-RUN apt-get update && apt-get install -y nifi
-
 # Switch back to the airflow user
 USER airflow
