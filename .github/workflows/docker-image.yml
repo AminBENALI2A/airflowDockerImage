@@ -18,4 +18,4 @@ jobs:
         run: docker build -t aminbenali/dockerized-airflow:V1 ${GITHUB_WORKSPACE}
 
       - name: Push the Docker image (optional, if using tags)
-        run: docker push aminbenali/dockerized-airflow:V1
+        run: docker push aminbenali/dockerized-airflow:V2
