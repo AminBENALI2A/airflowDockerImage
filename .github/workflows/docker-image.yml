@@ -15,7 +15,7 @@ jobs:
         run: echo "okba1020@" | docker login --username aminebenaliroo@gmail.com --password-stdin
 
       - name: Build the Docker image
-        run: docker build -t aminbenali/dockerized-airflow:V1 ${GITHUB_WORKSPACE}
+        run: docker build -t aminbenali/dockerized-airflow:V2 ${GITHUB_WORKSPACE}
 
       - name: Push the Docker image (optional, if using tags)
         run: docker push aminbenali/dockerized-airflow:V2
