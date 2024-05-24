@@ -2,11 +2,11 @@
 FROM apache/airflow:latest
 
 # Use root to perform system modifications
-USER root
+USER airflow
 
 # Install any necessary dependencies (example shown)
 RUN pip install --no-cache-dir torch transformers pandas scipy dash spacy
-
+USER root
 # Create the 'airflow' group and user if they don't already exist
 RUN groupadd -f -g 50000 airflow && \
     useradd -u 50000 -g 50000 -ms /bin/bash airflow || true
