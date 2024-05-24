@@ -5,5 +5,10 @@ FROM apache/airflow:latest
 USER airflow
 
 # Install additional Python dependencies for Airflow
-RUN pip install torch pandas scipy Dash spacy
+RUN pip install torch pandas transformers scipy Dash spacy
+
+USER root
+
+RUN mkdir -p /home/airflow/.cache/huggingface && \
+    chown -R airflow:airflow /home/airflow/.cache
 
