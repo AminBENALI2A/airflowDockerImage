@@ -21,7 +21,7 @@ RUN mkdir /opt/airflow/models
 WORKDIR /opt/airflow/models
 
 # Example: Downloading models from Hugging Face using huggingface-cli
-RUN echo $HF_PASSWORD | huggingface-cli login --username $HF_USERNAME
+RUN huggingface-cli login
 RUN huggingface-cli repo create cardiffnlp/twitter-roberta-base-sentiment-latest
 RUN huggingface-cli repo create Falconsai/text_summarization
 RUN huggingface-cli repo create facebook/mms-tts-eng
