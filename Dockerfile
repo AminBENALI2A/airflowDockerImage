@@ -2,6 +2,14 @@
 FROM apache/airflow:latest
 
 # Switch to the airflow user
+USER root
+
+# Install git
+RUN apt-get update && \
+    apt-get install -y git && \
+    apt-get clean
+
+# Switch back to the airflow user
 USER airflow
 
 # Install additional Python dependencies for Airflow
