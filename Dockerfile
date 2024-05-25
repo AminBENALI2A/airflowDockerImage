@@ -7,7 +7,10 @@ USER airflow
 # Install additional Python dependencies for Airflow
 RUN pip install --no-cache-dir torch transformers pandas scipy dash spacy
 
- #Set environment variables for Hugging Face credentials
+# Create a directory for storing secrets
+RUN mkdir /run/secrets
+
+# Set the default values for Hugging Face credentials
 ENV HF_USERNAME=aminebenaliroo@gmail.com
 ENV HF_PASSWORD=aminBENALI2003
 
@@ -16,7 +19,7 @@ RUN mkdir /opt/airflow/models
 WORKDIR /opt/airflow/models
 
 # Example: Downloading models from Hugging Face using huggingface-cli
-RUN echo $HF_PASSWORD | huggingface-cli login --username $HF_USERNAME --password
+RUN echo $HF_PASSWORD | huggingface-cli login --username $HF_USERNAME
 RUN huggingface-cli repo create cardiffnlp/twitter-roberta-base-sentiment-latest
 RUN huggingface-cli repo create Falconsai/text_summarization
 RUN huggingface-cli repo create facebook/mms-tts-eng
