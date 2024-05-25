@@ -4,10 +4,11 @@ FROM apache/airflow:latest
 # Switch to the airflow user
 USER root
 
-# Install git
+# Install necessary packages
 RUN apt-get update && \
-    apt-get install -y git && \
-    apt-get clean
+    apt-get install -y git git-lfs && \
+    apt-get clean && \
+    pip install huggingface-hub
 
 # Switch back to the airflow user
 USER airflow
