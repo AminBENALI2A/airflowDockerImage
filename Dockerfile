@@ -1,11 +1,18 @@
-# Start from the Airflow base image
+
 FROM apache/airflow:latest
 
-# Use root to perform system modifications
+# Switch to the airflow user
 USER airflow
 
-# Install any necessary dependencies (example shown)
+# Install additional Python dependencies for Airflow
 RUN pip install --no-cache-dir torch transformers pandas scipy dash spacy
 
-# Switch back to the non-root user 'airflow'
-USER airflow
+
+# Download models from Hugging Face
+RUN mkdir /opt/airflow/models
+WORKDIR /opt/airflow/models
+
+# Example: Downloading models from Hugging Face
+RUN transformers-cli repo download cardiffnlp/twitter-roberta-base-sentiment-latest
+RUN transformers-cli repo download Falconsai/text_summarization
+RUN transformers-cli repo download facebook/mms-tts-eng
