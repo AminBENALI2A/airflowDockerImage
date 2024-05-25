@@ -8,6 +8,8 @@ USER airflow
 RUN pip install --no-cache-dir torch transformers pandas scipy dash spacy
 
 # Create a directory for storing secrets
+USER root
+
 RUN mkdir /run/secrets
 
 # Set the default values for Hugging Face credentials
