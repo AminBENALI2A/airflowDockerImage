@@ -24,6 +24,6 @@ WORKDIR /opt/airflow/models
 
 # Example: Downloading models from Hugging Face using huggingface-cli
 RUN huggingface-cli login --token $HF_TOKEN
-RUN huggingface-cli repo create cardiffnlp/twitter-roberta-base-sentiment-latest
-RUN huggingface-cli repo create Falconsai/text_summarization
-RUN huggingface-cli repo create facebook/mms-tts-eng
+RUN huggingface-cli download cardiffnlp/twitter-roberta-base-sentiment-latest
+RUN huggingface-cli download Falconsai/text_summarization
+RUN huggingface-cli download facebook/mms-tts-eng
