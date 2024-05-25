@@ -7,8 +7,7 @@ USER root
 # Install necessary packages
 RUN apt-get update && \
     apt-get install -y git git-lfs && \
-    apt-get clean && \
-    pip install huggingface-hub
+    apt-get clean
 
 # Switch back to the airflow user
 USER airflow
